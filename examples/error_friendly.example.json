@@ -1,0 +1,10 @@
+{
+  "message_intent": "ERROR_FRIENDLY",
+  "missing_fields": [],
+  "coach_prompt": "I ran into a snag processing that file. You’re not doing anything wrong — could you try re-uploading or sharing a simpler export?",
+  "score": {
+    "estimated": true
+  },
+  "insight": {},
+  "action_step": {}
+}

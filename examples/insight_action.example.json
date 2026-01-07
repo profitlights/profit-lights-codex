@@ -1,0 +1,20 @@
+{
+  "message_intent": "INSIGHT_ACTION",
+  "missing_fields": [],
+  "coach_prompt": "You’re in a steady spot overall. Here’s the one thing to focus on next.",
+  "quick_replies": ["Show me the math", "Set a reminder"],
+  "score": {
+    "value": 72,
+    "band": "amber",
+    "estimated": false
+  },
+  "insight": {
+    "text": "Food costs are running high this period compared to revenue."
+  },
+  "action_step": {
+    "title": "Tighten your top items",
+    "bullets": [
+      "Pick your top 5 menu items and price-check suppliers (15 minutes)."
+    ]
+  }
+}

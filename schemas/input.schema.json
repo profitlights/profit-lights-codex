@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Profit Lights Raw Upload",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "business_id": { "type": "string" },
+    "period_start": { "type": "string", "format": "date" },
+    "period_end": { "type": "string", "format": "date" },
+    "currency": { "type": "string", "minLength": 3, "maxLength": 3 },
+    "revenue": { "type": ["number", "null"] },
+    "cogs": { "type": ["number", "null"] },
+    "labor": { "type": ["number", "null"] },
+    "operating_expenses": { "type": ["number", "null"] },
+    "source": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}
