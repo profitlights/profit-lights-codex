@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Profit Lights Normalized Upload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["period_start", "period_end", "currency"],
+  "properties": {
+    "period_start": { "type": "string", "format": "date" },
+    "period_end": { "type": "string", "format": "date" },
+    "currency": { "type": "string", "minLength": 3, "maxLength": 3 },
+    "revenue": { "type": ["number", "null"], "minimum": 0 },
+    "cogs": { "type": ["number", "null"], "minimum": 0 },
+    "labor": { "type": ["number", "null"], "minimum": 0 },
+    "operating_expenses": { "type": ["number", "null"], "minimum": 0 },
+    "notes": { "type": "string" }
+  }
+}

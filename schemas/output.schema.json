@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Profit Lights Codex Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "message_intent",
+    "missing_fields",
+    "coach_prompt",
+    "score",
+    "insight",
+    "action_step"
+  ],
+  "properties": {
+    "message_intent": {
+      "type": "string",
+      "enum": [
+        "INSIGHT_ACTION",
+        "NEEDS_MORE_INFO",
+        "UPLOAD_CONFIRMED",
+        "ERROR_FRIENDLY"
+      ]
+    },
+    "missing_fields": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 2
+    },
+    "coach_prompt": { "type": "string" },
+    "quick_replies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["estimated"],
+      "properties": {
+        "value": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "band": { "type": "string", "enum": ["green", "amber", "red"] },
+        "estimated": { "type": "boolean" }
+      }
+    },
+    "insight": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string" }
+      }
+    },
+    "action_step": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string" },
+        "bullets": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "maxItems": 3
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "message_intent": { "const": "INSIGHT_ACTION" }
+        }
+      },
+      "then": {
+        "properties": {
+          "missing_fields": { "maxItems": 0 },
+          "score": { "required": ["value", "band", "estimated"] },
+          "insight": { "required": ["text"] },
+          "action_step": { "required": ["title", "bullets"] }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "message_intent": { "const": "NEEDS_MORE_INFO" }
+        }
+      },
+      "then": {
+        "properties": {
+          "missing_fields": { "minItems": 1 }
+        }
+      }
+    }
+  ]
+}

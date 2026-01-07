@@ -1,0 +1,10 @@
+{
+  "message_intent": "NEEDS_MORE_INFO",
+  "missing_fields": ["revenue"],
+  "coach_prompt": "You’re not doing anything wrong. I need one anchor number so I don’t guess wrong. Could you share revenue for this period? A rough estimate or range is totally fine.",
+  "score": {
+    "estimated": true
+  },
+  "insight": {},
+  "action_step": {}
+}
